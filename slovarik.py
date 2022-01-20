@@ -7,10 +7,10 @@ while True:
     print("Привет, ты зашел в словарь русско-английского и английско-русского перевода! \nЧто ты хочешь сделать?")
     menu=input("\ntranslate - перевести слово \nadd - добавить слово \nall - все слова, которые есть \ncontrol - Произвести слово \nerror - исправить слово \nВводи: ")
     if menu=="t":
-        translate()
+        translate(rus_list,eng_list)
     elif menu=="add":
-        rus_list=uus_sona("russkiy.txt",input("Новое слово:"))
-        eng_list=uus_sona("english.txt",input("Uus sõna:"))
+        rus_list=uus_sona("russkiy.txt",input("Русский: "))
+        eng_list=uus_sona("english.txt",input("Английский: "))
     elif menu=="all":
         print(rus_list)
         print(eng_list)
@@ -18,3 +18,4 @@ while True:
          wordControl()
     elif menu=="error":
         viga()
+
