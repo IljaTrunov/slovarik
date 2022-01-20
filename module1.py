@@ -1,3 +1,6 @@
+import os
+from gtts import gTTS
+
 def failist_lugemine(f:str,l:list):
 	fail=open(f,"r",encoding="utf-8-sig") 
 	for rida in fail:
@@ -17,18 +20,18 @@ def uus_sona(f:str,rida:str)->list:
 	l=[]
 	with open(f,"a",encoding="utf-8-sig") as fail:
 		fail.write(rida+"\n")
-	l=failist_lugemine(f)
+	l=failist_lugemine(f) 
 	return l
-def translate(rus:list,eng:list):
-    word=input("Что переводить?")
-    if word in l1:
-        translate=l2[l1.index(word)]
-        print(word+"-"+translate)
-    elif word in l2:
-        translate=l1[l2.index(word)]
-        print(word+"-"+translate)
-    else:
-        print("Такого слова нету в словаре!")
+def tolkimine(l1:list,l2:list):
+	sona=input("Что перевести?: ")
+	if sona in l1:
+		tolk=l2[l1.index(sona)]
+		print(sona+"-"+tolk)
+	elif sona in l2:
+		tolk=l1[l2.index(sona)]
+		print(sona+"-"+tolk)
+	else:
+		print("Этого слова не существует в словаре!")
 def viga(l1:list,f1:str,l2:list,f2:str):
 	word=input("В каком слова ошибка? ")
 	if word not in l1 and word not in l2:
@@ -46,14 +49,18 @@ def viga(l1:list,f1:str,l2:list,f2:str):
 		l2.append(input("Введи слово: "))
 		failisse_salvestamine(f1,l1)
 		failisse_salvestamine(f2,l2)
-def wordControl():
-	while 1:
-		print("Если хочешь выйти, напиши q")
-		word=input("Введи слово и его перевод: ")
-		if word in l1 and word in l2:
-			print("Молодец")
-		elif word=="q":
-			quit
+def correction(sona:str,l:list):
+	for i in range(len(l)):
+		if l[i]==sona:
+			uus_sona=sona.replace(sona,input("Новое слово: "))
+			l.insert(i,uus_sona)
+			l.remove(sona)
+	return l
+
+def heli(text:str,keel:str):
+	obj=gTTS(text=text,lang=keel,slow=False).save("heli.mp3")
+	os.system("heli.mp3")
+
 #import os
 #from gtts import gTTS
 #def heli(text:str,lang:str):
