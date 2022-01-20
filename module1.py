@@ -22,7 +22,7 @@ def uus_sona(f:str,rida:str)->list:
 		fail.write(rida+"\n")
 	l=failist_lugemine(f) 
 	return l
-def tolkimine(l1:list,l2:list):
+def translate(l1:list,l2:list):
 	sona=input("Что перевести?: ")
 	if sona in l1:
 		tolk=l2[l1.index(sona)]
