@@ -56,7 +56,33 @@ def correction(sona:str,l:list):
 			l.insert(i,uus_sona)
 			l.remove(sona)
 	return l
-
+def test(l1:list,l2:list):
+    result=0
+    lists=[]
+    lists.extend(l1)
+    lists.extend(l2)
+    random.shuffle(lists)
+    print('random list ',lists)
+    for i in range(len(l1)):
+        print(l1,l1)
+        print(l2,l2)
+        otvet=input(f"Переведи данное слово - '{lists[i]}': ")
+        if otvet in l1 or otvet in l2:
+            if lists[i] in l1:
+               if l1.index(lists[i])==l2.index(otvet):
+                    result+=1
+                    print('правильно!')
+                    print()
+            elif lists[i] in l2:
+                if l2.index(lists[i])==l1.index(otvet):
+                    result+=1
+                    print('правильно!')
+                    print()
+        else:
+            print('Неправильно!')
+            print()
+    resultPer=(result/len(l1))*100
+    print(f"Ваш результат: {resultPer}%")
 #def heli(text:str,keel:str):
 	#obj=gTTS(text=text,lang=keel,slow=False).save("heli.mp3")
 	#os.system("heli.mp3")
