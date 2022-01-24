@@ -1,5 +1,5 @@
-import os
-from gtts import gTTS
+#import os
+#from gtts import gTTS
 
 def failist_lugemine(f:str,l:list):
 	fail=open(f,"r",encoding="utf-8-sig") 
@@ -57,9 +57,9 @@ def correction(sona:str,l:list):
 			l.remove(sona)
 	return l
 
-def heli(text:str,keel:str):
-	obj=gTTS(text=text,lang=keel,slow=False).save("heli.mp3")
-	os.system("heli.mp3")
+#def heli(text:str,keel:str):
+	#obj=gTTS(text=text,lang=keel,slow=False).save("heli.mp3")
+	#os.system("heli.mp3")
 
 #import os
 #from gtts import gTTS
